@@ -24,7 +24,7 @@ $handler = new class() implements KiruganIf {
 $processor = new KiruganProcessor($handler);
 
 $transport = new TPhpStream(TPhpStream::MODE_R | TPhpStream::MODE_W);
-$protocol = new \Thrift\Protocol\TBinaryProtocol($transport, true, true);
+$protocol = new \Thrift\Protocol\TJSONProtocol($transport, true, true);
 $transport->open();
 $processor->process($protocol, $protocol);
 $transport->close();
